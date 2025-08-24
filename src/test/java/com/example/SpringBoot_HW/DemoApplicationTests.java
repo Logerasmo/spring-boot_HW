@@ -24,14 +24,18 @@ class DemoApplicationTests {
     }
 
     @Test
-    void contextLoads() {
+    void test1() {
         ResponseEntity<String> forEntity1 = restTemplate.getForEntity("http://localhost:" + myAppFirst.getMappedPort(8080) + "/profile", String.class);
         System.out.println(forEntity1.getBody());
-        Assertions.assertEquals(8080, Integer.getInteger(forEntity1.getBody()));
+        Assertions.assertEquals("Current profile is dev", forEntity1.getBody());
 
+        
+    }
+
+    @Test
+    void test2(){
         ResponseEntity<String> forEntity2 = restTemplate.getForEntity("http://localhost:" + myAppSecond.getMappedPort(8081) + "/profile", String.class);
         System.out.println(forEntity2.getBody());
-        Assertions.assertEquals(8081, Integer.getInteger(forEntity2.getBody()));
-    }
+        Assertions.assertEquals("Current profile is production", forEntity2.getBody());
 
 }
