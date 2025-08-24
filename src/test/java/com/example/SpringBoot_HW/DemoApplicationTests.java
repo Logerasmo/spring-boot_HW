@@ -29,7 +29,7 @@ class DemoApplicationTests {
         System.out.println(forEntity1.getBody());
         Assertions.assertEquals(8080, Integer.getInteger(forEntity1.getBody()));
 
-        ResponseEntity<String> forEntity2 = restTemplate.getForEntity("http://localhost:" + myAppSecond.getMappedPort(8080), String.class);
+        ResponseEntity<String> forEntity2 = restTemplate.getForEntity("http://localhost:" + myAppSecond.getMappedPort(8081), String.class);
         System.out.println(forEntity2.getBody());
         Assertions.assertEquals(8081, Integer.getInteger(forEntity2.getBody()));
     }
