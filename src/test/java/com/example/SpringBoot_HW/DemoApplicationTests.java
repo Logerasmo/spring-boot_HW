@@ -25,11 +25,11 @@ class DemoApplicationTests {
 
     @Test
     void contextLoads() {
-        ResponseEntity<String> forEntity1 = restTemplate.getForEntity("http://localhost:" + myAppFirst.getMappedPort(8080), String.class);
+        ResponseEntity<String> forEntity1 = restTemplate.getForEntity("http://localhost:" + myAppFirst.getMappedPort(8080) + "/profile", String.class);
         System.out.println(forEntity1.getBody());
         Assertions.assertEquals(8080, Integer.getInteger(forEntity1.getBody()));
 
-        ResponseEntity<String> forEntity2 = restTemplate.getForEntity("http://localhost:" + myAppSecond.getMappedPort(8081), String.class);
+        ResponseEntity<String> forEntity2 = restTemplate.getForEntity("http://localhost:" + myAppSecond.getMappedPort(8081) + "/profile", String.class);
         System.out.println(forEntity2.getBody());
         Assertions.assertEquals(8081, Integer.getInteger(forEntity2.getBody()));
     }
